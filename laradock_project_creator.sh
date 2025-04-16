@@ -6,29 +6,26 @@ if [[ $EUID -ne 0 ]]; then
     exit 1
 fi
 
-
 # Define default language
 language="en_US" # Available Options: "en_US", "pt_BR"
 
 # Set the language based on the system language
 auto_detect_language=false # true or false. Default: true
 
-# Path to Laradock
-#laradock_path="/mnt/1282CEC77B887CA3/Laradock/laradock"
-laradock_path="/home/rubens/Documentos/TEST/Laradock"
+# Path to Laradock. This is the path where Laradock is located.
+laradock_path="/home/Laradock/laradock" # without trailing slash
 
 # Docker Apache2 restart command
 docker_apache2_restart_command="docker restart laradock_apache2_1"
 
 # Path to Apache2
-apache_path="$laradock_path/apache2/sites"
+apache_path="$laradock_path/apache2/sites" # without trailing slash
 
-# Path to the Projects directory
-#projects_path="/mnt/1282CEC77B887CA3/Projetos"
-projects_path="/home/rubens/Documentos/TEST/Projetos"
+# Path to the Projects directory. APP_CODE_PATH_HOST on .env file in Laradock
+projects_path="/home/Projects" # without trailing slash
 
 # Path to the /etc/hosts file
-host_file="/home/rubens/Documentos/TEST/hosts" # default: "/etc/hosts"
+host_file="/etc/hosts" # default: "/etc/hosts"
 
 # Category identifier. CAT_NAME_HERE will be replaced by the category name. Do not use spaces or special characters.
 category_slug="##CATEGORY:CAT_NAME_HERE##"
@@ -37,13 +34,11 @@ category_slug="##CATEGORY:CAT_NAME_HERE##"
 # You can add or remove categories as needed.
 # Do not use spaces or special characters in the category names.
 default_categories=(
-    "Tests"
+    "Category1"
     "OpenSource"
     "MicroSaas"
     "Saas"
-    "Flippa"
     "Personal"
-    "Scripts"
 )
 
 # Virtual Host Template

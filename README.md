@@ -50,6 +50,45 @@ The script includes several variables that can be customized to fit your environ
    ```
 4. Follow the prompts to create a new project.
 
+## Creating an Alias
+
+To simplify running the script, you can create a shell alias. Follow these steps:
+
+1. Open your shell configuration file (e.g., `~/.bashrc` or `~/.zshrc`) in a text editor(nano, gedit, xed(Linux Mint), subl(Sublime Text), code(VsCode)):
+   ```bash
+   nano ~/.bashrc
+   ```
+   Or for Zsh:
+   ```bash
+   nano ~/.zshrc
+   ```
+
+2. Add the following line to create an alias for the script:
+   ```bash
+   alias laradock-create="/path/to/laradock_project_creator.sh"
+   ```
+   Replace `/path/to/` with the full path to the script.
+
+3. Save the file and reload your shell configuration:
+   ```bash
+   source ~/.bashrc
+   ```
+   Or for Zsh:
+   ```bash
+   source ~/.zshrc
+   ```
+
+4. (Optional) If you encounter issues running the alias with `sudo`, you may need to create an alias for `sudo` itself. Add the following line to your shell configuration file:
+   ```bash
+   alias sudo="sudo "
+   ```
+   This ensures that `sudo` works correctly with aliases.
+
+5. Now you can run the script using the alias:
+   ```bash
+   sudo laradock-create
+   ```
+
 ## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.

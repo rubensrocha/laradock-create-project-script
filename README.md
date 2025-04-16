@@ -1,4 +1,4 @@
-# Laradock Project Automation Script
+# Laradock Create Project Script
 
 This project provides a Bash script to automate the setup of local development environments using Laradock and Apache2. It simplifies the creation of project directories, VirtualHost configurations, and domain setup in the hosts file, ensuring a streamlined and efficient workflow for developers.
 

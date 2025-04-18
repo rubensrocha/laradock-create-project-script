@@ -84,12 +84,14 @@ declare -A texts_pt_BR=(
     ["version"]="Versão:"
     ["project_name_prompt"]="Digite o nome do projeto (case sensitive): "
     ["select_directory"]="Selecione o diretório onde deseja criar o projeto:"
+    ["select_category"]="Selecione a categoria do projeto:"
     ["select_apache_config"]="Selecione o arquivo de configuração do Apache2:"
     ["invalid_option"]="Opção inválida. Por favor, digite 's' ou 'n'."
     ["creating_directory"]="Criando o diretório do projeto em"
     ["error_creating_directory"]="Erro ao criar o diretório do projeto. Verifique as permissões."
     ["adding_virtualhost"]="Adicionando o novo VirtualHost ao arquivo de configuração do Apache2..."
     ["select_valid_directory"]="Selecione um diretório válido."
+    ["select_valid_category"]="Selecione uma categoria válida."
     ["select_valid_config"]="Selecione um arquivo de configuração válido."
     ["searching_categories"]="Buscando categorias existentes no arquivo de hosts..."
     ["invalid_category_name"]="Nome inválido. Por favor, digite um nome sem espaços ou caracteres especiais."
@@ -127,12 +129,14 @@ declare -A texts_en_US=(
     ["version"]="Version:"
     ["project_name_prompt"]="Enter the project name (case sensitive): "
     ["select_directory"]="Select the directory where you want to create the project:"
+    ["select_category"]="Select the project category:"
     ["select_apache_config"]="Select the Apache2 configuration file:"
     ["invalid_option"]="Invalid option. Please type 'y' or 'n'."
     ["creating_directory"]="Creating the project directory in"
     ["error_creating_directory"]="Error creating the project directory. Check permissions."
     ["adding_virtualhost"]="Adding the new VirtualHost to the Apache2 configuration file..."
     ["select_valid_directory"]="Select a valid directory."
+    ["select_valid_category"]="Select a valid category."
     ["select_valid_config"]="Select a valid configuration file."
     ["searching_categories"]="Searching for existing categories in the hosts file..."
     ["invalid_category_name"]="Invalid name. Please enter a name without spaces or special characters."
@@ -201,7 +205,7 @@ fi
 
 developer_name="Smarty Scripts"
 developer_website="https://smartyscripts.com"
-script_vesion="1.0.0"
+script_vesion="1.0.1"
 
 # Text colors
 green='\033[0;32m'
@@ -329,7 +333,7 @@ category_exists() {
 }
 
 # Ask the user which category the project belongs to
-echo "$(display_message "select_directory")"
+echo "$(display_message "select_category")"
 select category in "${default_categories[@]}" "$(display_message "new_category_created")"; do
     if [[ "$category" == "$(display_message "new_category_created")" ]]; then
         # Prompt for the new category name, it cannot be empty and cannot contain spaces or special characters
@@ -346,7 +350,7 @@ select category in "${default_categories[@]}" "$(display_message "new_category_c
     elif [[ -n "$category" ]]; then
         break
     else
-        echo "$(display_message "select_valid_directory")"
+        echo "$(display_message "select_valid_category")"
     fi
 done
 
